@@ -164,9 +164,9 @@ namespace sodecl {
             create_platforms();
 
             // Add default OpenCL build options
-            //m_build_options.push_back(build_Option::FastRelaxedMath);
-            //m_build_options.push_back(build_Option::stdCL20);
-            //m_build_options.push_back(build_Option::stdCL21);
+            //build_options.push_back(build_Option::FastRelaxedMath);
+            //build_options.push_back(build_Option::stdCL20);
+            //build_options.push_back(build_Option::stdCL21);
 
             m_local_group_size = 0;
 
@@ -179,7 +179,7 @@ namespace sodecl {
         ~sodeclmgr() {
             // delete m_sode_system_string;
             // delete m_output;
-            // delete m_source_str;
+            // delete source_str;
 
             // delete[] m_sode_system_string;  // This is a string literals. That means it has static storage duration (not dynamically allocated).
 
@@ -385,7 +385,7 @@ namespace sodecl {
             }
             m_contexts.push_back(context);
 
-            //std::cout << "Size of m_contexts : " << m_contexts.size() << std::endl;
+            //std::cout << "Size of contexts : " << contexts.size() << std::endl;
             return 1;
         }
 
@@ -608,12 +608,12 @@ namespace sodecl {
             add_string_to_kernel_sources("\n");
 
             // Print the string
-            //cout << m_kernel_sources.data() << endl;
+            //cout << kernel_sources.data() << endl;
 
             m_kernel_sources.shrink_to_fit();
             m_source_size = m_kernel_sources.size();
 
-            //cout << m_kernel_sources.data() << endl;
+            //cout << kernel_sources.data() << endl;
 
             // This is for debug purpose
             std::ofstream out("Generated_kernel.cl");
